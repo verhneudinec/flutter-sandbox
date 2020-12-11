@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// working with RichText & Text widgets
+
 void main() => runApp(App());
 
 class App extends StatelessWidget {
