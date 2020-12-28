@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_project/Advanced_tab.dart';
+import 'package:study_project/themes.dart';
 
 void main() => runApp(Home());
 
@@ -8,21 +9,63 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: MaterialApp(
-        home: App(),
-      ),
-    );
+    return App();
   }
 }
 
 class App extends StatefulWidget {
-  const App({Key key}) : super(key: key);
-
-  final String title = "My flutter app";
+  App({Key key}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() {
-    return AdvancedTab();
+  _AppState createState() => _AppState();
+}
+
+class _AppState extends State<App> {
+  var isDarkMode = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: "title of app",
+      theme: isDarkMode ? darkTheme : lightTheme,
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("title of app"),
+        ),
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              Text("12"),
+              Theme(
+                  data: ThemeData(
+                    textTheme: TextTheme(
+                      headline2: TextStyle(
+                        fontSize: 50,
+                      ),
+                    ),
+                  ),
+                  child: Text("12"))
+            ],
+          ),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(icon: Icon(Icons.add), label: "test"),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.face_outlined), label: "test"),
+            BottomNavigationBarItem(icon: Icon(Icons.dangerous), label: "test"),
+          ],
+        ),
+        floatingActionButton: FloatingActionButton(
+            child: Text(
+              isDarkMode ? "to light" : "to Dark",
+            ),
+            onPressed: () {
+              setState(() {
+                isDarkMode = !isDarkMode;
+              });
+            }),
+      ),
+    );
   }
 }
