@@ -30,15 +30,23 @@ class _AppState extends State<App> {
       theme: isDarkMode ? darkTheme : lightTheme,
       home: Scaffold(
         appBar: AppBar(
-          title: Text("title of app"),
+          title: Text("My test app"),
         ),
         body: Column(),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            BottomNavigationBarItem(icon: Icon(Icons.add), label: "test"),
             BottomNavigationBarItem(
-                icon: Icon(Icons.face_outlined), label: "test"),
-            BottomNavigationBarItem(icon: Icon(Icons.dangerous), label: "test"),
+              icon: Icon(Icons.add),
+              label: "test 1",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.face_outlined),
+              label: "test 2",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.dangerous),
+              label: "test 3",
+            ),
           ],
         ),
         floatingActionButton: FloatingActionButton(
