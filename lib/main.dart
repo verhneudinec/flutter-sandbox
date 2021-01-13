@@ -21,7 +21,8 @@ class App extends StatefulWidget {
 }
 
 class _AppState extends State<App> {
-  var isDarkMode = false;
+  bool isDarkMode = false;
+  bool isValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +33,49 @@ class _AppState extends State<App> {
         appBar: AppBar(
           title: Text("My test app"),
         ),
-        body: Column(),
+        body: Center(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 30,
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    isDarkMode = true;
+                  });
+                },
+                child: Text("Go dark side"),
+              ),
+              OutlineButton(
+                onPressed: () {
+                  setState(() {
+                    isDarkMode = false;
+                  });
+                },
+                child: Text("no, i don't like cookies"),
+              ),
+              TextButton(
+                onPressed: () {
+                  setState(() {
+                    isValue = !isValue;
+                    isDarkMode = !isDarkMode;
+                  });
+                },
+                child: Text("inverse isValue and theme"),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: ListTile(
+                  title: Text("<- isValue"),
+                  leading: Text(isValue.toString()),
+                  subtitle: Text("subtitle"),
+                  trailing: Text("trailing"),
+                ),
+              ),
+            ],
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
