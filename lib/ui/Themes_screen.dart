@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:study_project/ui/Advanced_tab.dart';
 import 'package:study_project/res/themes.dart';
 
 void main() => runApp(Home());
@@ -32,7 +31,22 @@ class _AppState extends State<App> {
         appBar: AppBar(
           title: Text("title of app"),
         ),
-        body: Column(),
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              Text("12"),
+              Theme(
+                  data: ThemeData(
+                    textTheme: TextTheme(
+                      headline2: TextStyle(
+                        fontSize: 50,
+                      ),
+                    ),
+                  ),
+                  child: Text("12"))
+            ],
+          ),
+        ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(icon: Icon(Icons.add), label: "test"),

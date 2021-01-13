@@ -66,6 +66,7 @@ class App extends StatelessWidget {
       floatingActionButton: FloatingActionButton(
         child: Text("Add"),
         backgroundColor: Colors.white30,
+        onPressed: null,
       ),
       backgroundColor: Colors.white,
       // bottomNavigationBar: BottomNavigationBar(
