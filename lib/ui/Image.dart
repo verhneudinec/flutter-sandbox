@@ -28,6 +28,7 @@ class App extends StatelessWidget {
       // "https://million-wallpapers.ru/wallpapers/5/35/459875890313654/jaguar-xk-r-2012.jpg"),
 
       floatingActionButton: FloatingActionButton(
+        onPressed: () => print("test"),
         child: Text("Add"),
         backgroundColor: Colors.white30,
       ),
