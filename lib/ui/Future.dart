@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 
+/// Первый пример
 class LearningFuture extends StatelessWidget {
   const LearningFuture({Key key}) : super(key: key);
 
@@ -35,6 +35,7 @@ class LearningFuture extends StatelessWidget {
   }
 }
 
+/// Второй пример
 class LearningFuture2 extends StatelessWidget {
   const LearningFuture2({Key key}) : super(key: key);
 
@@ -117,4 +118,43 @@ class AsyncWorker {
   void _finish(String res) {
     _completer.complete(res);
   }
+}
+
+/// Четвертый пример
+void asyncWorker2() async {
+  m1();
+  m2();
+}
+
+void m1() {
+  print('Start m1');
+
+  var list = <String>['one', 'two', 'three'];
+  list.forEach((value) async {
+    await delayedPrint(value);
+  });
+
+  // В отдельном потоке отрабатывает перебор
+  // каждого из элементов
+
+  print('End m1');
+}
+
+void m2() async {
+  print('Start m2');
+
+  var list = <String>['one', 'two', 'three'];
+  for (var i = 0; i < list.length; i++) {
+    await delayedPrint(list[i] + ' from m2');
+  }
+
+  // в основном потоке
+  // не просто перебираем,
+  // а говорим ждать выполнения этой Future
+
+  print('End m2');
+}
+
+Future<void> delayedPrint(String val) async {
+  await Future.delayed(Duration(seconds: 1), () => print(val));
 }
