@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:study_project/res/themes.dart';
-import 'package:study_project/ui/CustomScrollView_SliverList_SliverAppBar.dart';
-import 'package:study_project/ui/Future.dart';
-import 'package:study_project/ui/NestedScrollView.dart';
+import 'package:study_project/ui/Navigator.dart';
 
 void main() => runApp(Home());
 
@@ -30,7 +28,10 @@ class _AppState extends State<App> {
     return MaterialApp(
       title: "Test app",
       theme: isDarkMode ? darkTheme : lightTheme,
-      home: LearningFuture(),
+      home: AppNavigator(),
+      routes: {
+        '1': (context) => SecondWidget(2),
+      },
     );
   }
 }
