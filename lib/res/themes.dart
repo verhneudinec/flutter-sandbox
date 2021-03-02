@@ -35,6 +35,9 @@ final lightTheme = ThemeData(
       fontSize: 20,
     ),
   ),
+  bottomSheetTheme: BottomSheetThemeData(
+    backgroundColor: Colors.transparent,
+  ),
 );
 
 final darkTheme = ThemeData(
