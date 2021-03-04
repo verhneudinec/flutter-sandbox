@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:study_project/res/themes.dart';
 import 'package:study_project/ui/BottomSheet_Dialog.dart';
 import 'package:study_project/ui/Navigator.dart';
+import 'package:study_project/ui/Pickers.dart';
 
 void main() => runApp(Home());
 
@@ -29,7 +30,7 @@ class _AppState extends State<App> {
     return MaterialApp(
       title: "Test app",
       theme: isDarkMode ? darkTheme : lightTheme,
-      home: BottomSheetAndDialog(),
+      home: Pickers(),
       routes: {
         '1': (context) => SecondWidget(2),
       },
