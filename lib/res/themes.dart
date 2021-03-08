@@ -1,11 +1,21 @@
 import 'package:flutter/material.dart';
 
 final lightTheme = ThemeData(
-  primaryColor: Colors.black,
+  primaryColor: Colors.green[400],
   buttonTheme: ButtonThemeData(
     buttonColor: Colors.cyan,
     textTheme: ButtonTextTheme
         .primary, // Flutter выбирает контрастный цвет исходя из цвета кнопки
+  ),
+  textTheme: TextTheme(
+    headline6: TextStyle(
+      color: Colors.white,
+      fontSize: 22,
+    ),
+    subtitle1: TextStyle(
+      color: Colors.green[700],
+      fontSize: 20,
+    ),
   ),
   sliderTheme: SliderThemeData.fromPrimaryColors(
     primaryColor: Colors.red,
