@@ -3,6 +3,7 @@ import 'package:study_project/res/themes.dart';
 import 'package:study_project/ui/Adapting_widgets.dart';
 import 'package:study_project/ui/BottomSheet_Dialog.dart';
 import 'package:study_project/ui/Dio_demo.dart';
+import 'package:study_project/ui/Errors_Exceptions.dart';
 import 'package:study_project/ui/Http_demo.dart';
 import 'package:study_project/ui/Navigator.dart';
 import 'package:study_project/ui/Pickers.dart';
@@ -34,7 +35,7 @@ class _AppState extends State<App> {
     return MaterialApp(
       title: "Test app",
       theme: isDarkMode ? darkTheme : lightTheme,
-      home: Streams(),
+      home: ErrorsExceptions(),
       routes: {
         '1': (context) => SecondWidget(2),
       },
