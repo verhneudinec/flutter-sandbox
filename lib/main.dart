@@ -6,6 +6,7 @@ import 'package:study_project/ui/Dio_demo.dart';
 import 'package:study_project/ui/Errors_Exceptions.dart';
 import 'package:study_project/ui/Explicit_animations.dart';
 import 'package:study_project/ui/Http_demo.dart';
+import 'package:study_project/ui/Implicit_animations.dart';
 import 'package:study_project/ui/Navigator.dart';
 import 'package:study_project/ui/Pickers.dart';
 import 'package:study_project/ui/Streams.dart';
@@ -37,7 +38,7 @@ class _AppState extends State<App> {
       title: "Test app",
       debugShowCheckedModeBanner: false,
       theme: isDarkMode ? darkTheme : lightTheme,
-      home: ExplicitAnimationsDemo(),
+      home: ImplicitDemo(),
       routes: {
         '1': (context) => SecondWidget(2),
       },
