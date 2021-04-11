@@ -26,44 +26,43 @@ class ChannelsTest extends StatefulWidget {
   _ChannelsTestState createState() => _ChannelsTestState();
 }
 
-class _ChannelsTestState extends State<ChannelsTest> {
-  final binaryMessenger = ServicesBinding.instance.defaultBinaryMessenger;
+final messageChannelName = 'message_channel';
 
-  final binaryChannelName = 'binary_channel';
+final binaryMessenger = ServicesBinding.instance.defaultBinaryMessenger;
+
+class _ChannelsTestState extends State<ChannelsTest> {
+  final messageChannel = BasicMessageChannel<String>(
+    messageChannelName,
+    StringCodec(),
+    binaryMessenger: binaryMessenger,
+  );
 
   @override
   void initState() {
     super.initState();
-    receiveBinary();
-    sendBinary();
+    receiveMessage();
+    sendMessage();
   }
 
-  void sendBinary() async {
-    final WriteBuffer buffer = WriteBuffer()
-      ..putFloat64(0.5)
-      ..putInt32(1);
+  void sendMessage() async {
+    final response = await messageChannel.send("Hello, android");
 
-    final ByteData byteData = buffer.done();
-
-    final result = await binaryMessenger.send(binaryChannelName, byteData);
-
-    final ReadBuffer readBuffer = ReadBuffer(result);
-
-    final x = readBuffer.data.getFloat64(0);
-    final y = readBuffer.data.getFloat32(8);
-
-    print("FLUTTER | result: x =  $x, y = $y");
+    print("FLUTTER | $response");
   }
 
-  void receiveBinary() async {
-    binaryMessenger.setMessageHandler(binaryChannelName, (message) {
-      final ReadBuffer readBuffer = ReadBuffer(message);
+  void receiveMessage() async {
+    // binaryMessenger.setMessageHandler(messageChannelName, (message) {
+    //   final ReadBuffer readBuffer = ReadBuffer(message);
 
-      final x = readBuffer.data.getFloat64(0);
-      final y = readBuffer.data.getFloat32(8);
+    //   final x = readBuffer.data.getFloat64(0);
+    //   final y = readBuffer.data.getFloat32(8);
 
-      print("FLUTTER | mes rrecieved: x =  $x, y = $y");
+    //   print("FLUTTER | mes rrecieved: x =  $x, y = $y");
 
+    //   return;
+    // });
+    messageChannel.setMessageHandler((message) {
+      print("Flutter recivd message = $message");
       return;
     });
   }
