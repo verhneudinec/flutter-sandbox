@@ -10,6 +10,7 @@ import 'package:study_project/ui/Http_demo.dart';
 import 'package:study_project/ui/Implicit_animations.dart';
 import 'package:study_project/ui/Navigator.dart';
 import 'package:study_project/ui/Pickers.dart';
+import 'package:study_project/ui/Plugins.dart';
 import 'package:study_project/ui/Shared_prefs.dart';
 import 'package:study_project/ui/Streams.dart';
 
@@ -40,7 +41,7 @@ class _AppState extends State<App> {
       title: "Test app",
       debugShowCheckedModeBanner: false,
       theme: isDarkMode ? darkTheme : lightTheme,
-      home: SharedPrefsDemo(),
+      home: PluginsDemo(),
       // routes: {
       //   '1': (context) => AppNavigator2(),
       // },
